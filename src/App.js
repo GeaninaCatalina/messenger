@@ -11,6 +11,8 @@ class App extends Component {
     }
   }
 
+  
+
   render() {
     return (
       <div className="App">
@@ -24,6 +26,13 @@ class App extends Component {
                   <Card.Header>User</Card.Header>
                 </Card.Content>
               </Card>
+              <br></br>
+              <Form size='big'>
+                <Form.Field>
+                  <input placeholder='Add your message here' />
+                </Form.Field>
+                <Button type='submit'>Submit</Button>
+              </Form>
             </Grid.Column>
             <Grid.Column>
               <h2>Here are your messages</h2>
@@ -35,22 +44,7 @@ class App extends Component {
                   <Card.Header>User2</Card.Header>
                 </Card.Content>
               </Card>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column>
-              <Form size='big'>
-                <Form.Field>
-                  <input placeholder='Add your message here' />
-                </Form.Field>
-                <Button type='submit'>Submit</Button>
-              </Form>
-            </Grid.Column>
-
-            <Grid.Column>
-            </Grid.Column>
-
-            <Grid.Column>
+              <br></br>
               <Form size='big'>
                 <Form.Field>
                   <input placeholder='Add your message here' />
