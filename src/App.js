@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid, Card, Image, Form, Button } from 'semantic-ui-react';
+import { Grid, Card, Image, Form, Button, Feed } from 'semantic-ui-react';
 
 class App extends Component {
   constructor() {
-    super(); 
+    super();
     this.state = {
-      inputUserOne: '', 
-      inputUserTwo: '',
+      inputUserOne: '',
+      inputUserTwo: '', 
+      date: '', 
+      messageUserOne: 'Hello there'
     }
   }
 
-  
+ setMessageOne = (e) => { 
+ this.setState({inputUserOne: '', 
+                messageUserOne: e.target.value});
+ console.log(this.state.messageUserOne)
+ }   
+
+
 
   render() {
     return (
@@ -31,13 +39,27 @@ class App extends Component {
                 <Form.Field>
                   <input placeholder='Add your message here' />
                 </Form.Field>
-                <Button type='submit'>Submit</Button>
+                <Button type='submit' onClick={this.setMessageOne}>Submit</Button>
               </Form>
             </Grid.Column>
             <Grid.Column>
-              <h2>Here are your messages</h2>
+              <Feed>
+                <Feed.Event
+                  date={this.date}> 
+                  <Card>how are you? 
+                  </Card>
+                </Feed.Event>
+                <div className='feed2'>
+                <Feed.Event 
+                  Align='right'
+                  date={this.date}> 
+                  <Card>Good. You? 
+                  </Card>
+                </Feed.Event>
+                </div>
+              </Feed>
             </Grid.Column>
-            <Grid.Column Align='right'>
+            <Grid.Column>
               <Card className='card' color='pink'>
                 <Image src='https://cdn.pixabay.com/photo/2015/11/03/10/23/watercolor-1020509_1280.jpg' wrapped ui={false} />
                 <Card.Content>
