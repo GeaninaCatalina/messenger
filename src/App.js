@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid, Card, Image, Form, Button, Feed } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import UserComponent from './components/user/UserComponent';
+import FeedComponent from './components/feed/FeedComponent';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      inputUserOne: '',
-      inputUserTwo: '', 
-      date: '', 
-      messageUserOne: 'Hello there'
+      messages: []
     }
   }
 
- setMessageOne = (e) => { 
- this.setState({inputUserOne: '', 
-                messageUserOne: e.target.value});
- console.log(this.state.messageUserOne)
- }   
+  onUserSubmitMessage = (userName, message) => {
+    const {messages} = this.state;
+    const allignment = userName === 'ck' ? 'left' : 'right';
+    messages.push({userName, message, date: Date.now(), allignment})
 
-
+    this.setState({messages});
+  }
 
   render() {
     return (
@@ -28,51 +27,13 @@ class App extends Component {
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column>
-              <Card className='card' color='pink'>
-                <Image src='https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_1280.png' wrapped ui={false} />
-                <Card.Content>
-                  <Card.Header>User</Card.Header>
-                </Card.Content>
-              </Card>
-              <br></br>
-              <Form size='big'>
-                <Form.Field>
-                  <input placeholder='Add your message here' />
-                </Form.Field>
-                <Button type='submit' onClick={this.setMessageOne}>Submit</Button>
-              </Form>
+              <UserComponent userName='ck' onSubmitMessage={this.onUserSubmitMessage}/>
             </Grid.Column>
             <Grid.Column>
-              <Feed>
-                <Feed.Event
-                  date={this.date}> 
-                  <Card>how are you? 
-                  </Card>
-                </Feed.Event>
-                <div className='feed2'>
-                <Feed.Event 
-                  Align='right'
-                  date={this.date}> 
-                  <Card>Good. You? 
-                  </Card>
-                </Feed.Event>
-                </div>
-              </Feed>
+              <FeedComponent messages={this.state.messages}/>
             </Grid.Column>
             <Grid.Column>
-              <Card className='card' color='pink'>
-                <Image src='https://cdn.pixabay.com/photo/2015/11/03/10/23/watercolor-1020509_1280.jpg' wrapped ui={false} />
-                <Card.Content>
-                  <Card.Header>User2</Card.Header>
-                </Card.Content>
-              </Card>
-              <br></br>
-              <Form size='big'>
-                <Form.Field>
-                  <input placeholder='Add your message here' />
-                </Form.Field>
-                <Button type='submit'>Submit</Button>
-              </Form>
+              <UserComponent userName='sneaky' onSubmitMessage={this.onUserSubmitMessage}/>
             </Grid.Column>
           </Grid.Row>
         </Grid>
