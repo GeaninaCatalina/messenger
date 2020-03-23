@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Grid } from 'semantic-ui-react';
-import UserComponent from './components/user/UserComponent';
-import FeedComponent from './components/feed/FeedComponent';
 
 class App extends Component {
   constructor() {
