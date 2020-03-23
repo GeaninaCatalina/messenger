@@ -25,7 +25,7 @@ class UserComponent extends Component {
         <Card className='card' color='pink'>
           <Image src={'./' + this.props.userName + '.jpg'} wrapped ui={false} />
           <Card.Content>
-            <Card.Header>{this.props.userName}</Card.Header>
+            <Card.Header>{this.props.userName}.toUpperCase()</Card.Header>
           </Card.Content>
         </Card>
         <br></br>
