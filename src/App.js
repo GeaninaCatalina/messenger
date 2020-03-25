@@ -18,21 +18,21 @@ class App extends Component {
     messages.push({userName, message, date: Date.now(), allignment})
 
     this.setState({messages});
-  }
+  } 
 
   render() {
     return (
       <div className="App">
-        <h1>Wizzard</h1>
+        <h1 className='elegantshadow'>Read my messages</h1>
         <Grid columns={3} divided>
           <Grid.Row>
-            <Grid.Column>
+            <Grid.Column align='center'>
               <UserComponent userName='ck' onSubmitMessage={this.onUserSubmitMessage}/>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column >
               <FeedComponent messages={this.state.messages}/>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column align='center'>
               <UserComponent userName='sneaky' onSubmitMessage={this.onUserSubmitMessage}/>
             </Grid.Column>
           </Grid.Row>

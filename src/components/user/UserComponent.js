@@ -21,11 +21,11 @@ class UserComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div>       
         <Card className='card' color='pink'>
           <Image src={'./' + this.props.userName + '.jpg'} wrapped ui={false} />
           <Card.Content>
-            <Card.Header>{this.props.userName}.toUpperCase()</Card.Header>
+            <Card.Header>{this.props.userName.toUpperCase()}</Card.Header>
           </Card.Content>
         </Card>
         <br></br>
