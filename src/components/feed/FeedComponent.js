@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Feed, Image, } from 'semantic-ui-react';
+import { Feed,Label } from 'semantic-ui-react';
 import './FeedStyle.css'
 
 class FeedComponent extends Component {
@@ -14,13 +14,12 @@ class FeedComponent extends Component {
       <div className='feedFlex'>
         {this.props.messages.map((message, index) => {
           return (
-            <Feed.Event className={message.allignment === 'right' ? 'feedRight' : 'feedLeft'} key={index}>
-                <Image src={'./' + message.userName + '.jpg'} avatar />
-              {/* <Feed.Label  image={'./' + message.userName + '.jpg'} /> */}
-              <Feed.Content>
-                <Feed.Date content={message.userName + ' ' + new Date(message.date).toLocaleString()} />
-                <Feed.Extra text content={message.message} />
-              </Feed.Content>
+            <Feed.Event className={message.allignment === 'right' ? 'feedRight' : 'feedLeft'} key={index}> 
+              <Label pointing={message.allignment} as='a' color={message.allignment === 'right' ? 'green' : 'pink' }>
+                <span>{message.userName.toUpperCase()} </span>
+                <span calssName='lableStyle' allignment='right'> {new Date(message.date).toLocaleTimeString()} </span> 
+                <Feed.Extra  className='feedMessage' text content={message.message} />
+              </Label>
             </Feed.Event>
           )
         })}
