@@ -4,6 +4,7 @@ import { Grid } from 'semantic-ui-react';
 import UserComponent from './components/user/UserComponent';
 import FeedComponent from './components/feed/FeedComponent';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -19,6 +20,7 @@ class App extends Component {
 
     this.setState({messages});
   } 
+
 
   render() {
     return (
