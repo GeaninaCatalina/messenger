@@ -26,13 +26,13 @@ class App extends Component {
         <h1 className='elegantshadow'>Read my messages</h1>
         <Grid columns={3} divided>
           <Grid.Row>
-            <Grid.Column align='center'>
+            <Grid.Column align='center' width={4}>
               <UserComponent userName='ck' onSubmitMessage={this.onUserSubmitMessage}/>
             </Grid.Column>
-            <Grid.Column >
+            <Grid.Column width={7}>
               <FeedComponent messages={this.state.messages}/>
             </Grid.Column>
-            <Grid.Column align='center'>
+            <Grid.Column align='center' width={4}>
               <UserComponent userName='sneaky' onSubmitMessage={this.onUserSubmitMessage}/>
             </Grid.Column>
           </Grid.Row>
