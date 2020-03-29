@@ -15,10 +15,10 @@ class FeedComponent extends Component {
         {this.props.messages.map((message, index) => {
           return (
             <Feed.Event className={message.allignment === 'right' ? 'feedRight' : 'feedLeft'} key={index}> 
-              <Label pointing={message.allignment} as='a' color={message.allignment === 'right' ? 'green' : 'pink' }>
+              <Label pointing={message.allignment} as='a' color={message.allignment === 'right' ? 'green' : 'pink'}>
                 <span>{message.userName.toUpperCase()} </span>
                 <span calssName='lableStyle' allignment='right'> {new Date(message.date).toLocaleTimeString()} </span> 
-                <Feed.Extra  className='feedMessage' text content={message.message} />
+                <Feed.Extra className='feedMessage' text content={message.message} />
               </Label>
             </Feed.Event>
           )
