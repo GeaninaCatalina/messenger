@@ -14,9 +14,11 @@ class UserComponent extends Component {
     this.setState({userInput: e.target.value});
   }
 
-  onSubmit = () => {
+  onSubmit = () => { 
+    if (this.state.userInput !== '') {
     this.props.onSubmitMessage(this.props.userName, this.state.userInput);
     this.setState({userInput: ''});
+    }
   }
 
   render() {
