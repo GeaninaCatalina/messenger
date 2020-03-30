@@ -15,8 +15,8 @@ class FeedComponent extends Component {
         {this.props.messages.map((message, index) => {
           return (
             <Feed.Event className={message.allignment === 'right' ? 'feedRight' : 'feedLeft'} key={index}> 
-              <Label pointing={message.allignment}  color={message.allignment === 'right' ? 'green' : 'pink'}>
-                <span calssName='lableStyle' allignment='right' > {message.userName.toUpperCase()} {new Date(message.date).toLocaleTimeString()} </span> 
+              <Label pointing={message.allignment} color={message.allignment === 'right' ? 'green' : 'pink'}>
+                <span className='lableStyle' allignment='right' > {message.userName.toUpperCase()} {new Date(message.date).toLocaleTimeString()} </span> 
                 <Feed.Extra className='feedMessage' text content={message.message} />
               </Label>
             </Feed.Event>
