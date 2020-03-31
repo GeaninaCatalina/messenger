@@ -36,7 +36,7 @@ class UserComponent extends Component {
             <br></br>
             <Input placeholder='Add your message here' onChange={this.onInputChange} value={this.state.userInput}/>
           </Form.Field>
-          <Button type='submit' onClick={this.onSubmit}>Submit</Button>
+          <Button type='submit'color='grey' onClick={this.onSubmit}>Submit</Button>
         </Form>
       </div>
     );

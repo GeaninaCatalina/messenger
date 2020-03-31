@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid, Button } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import UserComponent from './components/user/UserComponent';
 import FeedComponent from './components/feed/FeedComponent';
 import axios from 'axios';
@@ -24,6 +24,8 @@ class App extends Component {
     messages.push({userName, message, date: Date.now(), allignment})
 
     this.setState({messages});
+
+    this.saveMessages();
   }
 
   async getMessages() {
@@ -41,15 +43,13 @@ class App extends Component {
       secondUser: 'ck',
       messages: this.state.messages
     });
-  }
+  } 
 
+ 
   render() {
     return (
       <div className="App">
         <h1 className='elegantshadow'>Read my messages</h1>
-        <h2>
-          <Button primary onClick={this.saveMessages}>Save conversation</Button>
-        </h2>
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column align='center' width={4}>
