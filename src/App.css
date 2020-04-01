@@ -19,3 +19,12 @@ h1.elegantshadow {
 .sneaky {
  align-items: center;
 }
+
+.useForScroll {
+  width: 200px;
+  height: 600px;
+  overflow-y:scroll;
+  -webkit-user-select: none;
+    -webkit-overflow-scrolling: touch;
+} 
+

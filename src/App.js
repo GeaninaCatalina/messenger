@@ -54,9 +54,9 @@ class App extends Component {
           <Grid.Row>
             <Grid.Column align='center' width={4}>
               <UserComponent userName='ck' onSubmitMessage={this.onUserSubmitMessage}/>
-            </Grid.Column>
-            <Grid.Column width={7}>
-              <FeedComponent messages={this.state.messages}/>
+            </Grid.Column> 
+            <Grid.Column className='useForScroll' width={7}>
+                <FeedComponent messages={this.state.messages}/>
             </Grid.Column>
             <Grid.Column align='center' width={4}>
               <UserComponent userName='sneaky' onSubmitMessage={this.onUserSubmitMessage}/>
