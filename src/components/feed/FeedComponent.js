@@ -6,10 +6,23 @@ class FeedComponent extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return true;
+  } 
+
+  messagesEndRef = React.createRef();
+
+  componentDidMount() {
+    this.scrollToBottom()
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom()
+  }
+
+  scrollToBottom = () => {
+    this.messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
   }
 
   render() {
-
     return (
       <div className='feedFlex'>
         {this.props.messages.map((message, index) => {
@@ -22,6 +35,7 @@ class FeedComponent extends Component {
             </Feed.Event>
           )
         })}
+      <div ref={this.messagesEndRef} />
       </div>
     );
   }

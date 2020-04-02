@@ -5,7 +5,6 @@ import UserComponent from './components/user/UserComponent';
 import FeedComponent from './components/feed/FeedComponent';
 import axios from 'axios';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -19,12 +18,11 @@ class App extends Component {
   }
 
   onUserSubmitMessage = (userName, message) => {
-    const {messages} = this.state;
+    const { messages } = this.state;
     const allignment = userName === 'ck' ? 'left' : 'right';
-    messages.push({userName, message, date: Date.now(), allignment})
+    messages.push({ userName, message, date: Date.now(), allignment })
 
-    this.setState({messages});
-
+    this.setState({ messages }); 
     this.saveMessages();
   }
 
@@ -34,7 +32,7 @@ class App extends Component {
       secondUser: 'ck'
     });
 
-    this.setState({messages: response.data});
+    this.setState({ messages: response.data });
   }
 
   saveMessages = async () => {
@@ -43,23 +41,23 @@ class App extends Component {
       secondUser: 'ck',
       messages: this.state.messages
     });
-  } 
+  }
 
- 
   render() {
+    
     return (
       <div className="App">
         <h1 className='elegantshadow'>Read my messages</h1>
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column align='center' width={4}>
-              <UserComponent userName='ck' onSubmitMessage={this.onUserSubmitMessage}/>
-            </Grid.Column> 
+              <UserComponent userName='ck' onSubmitMessage={this.onUserSubmitMessage} />
+            </Grid.Column>
             <Grid.Column className='useForScroll' width={7}>
-                <FeedComponent messages={this.state.messages}/>
+              <FeedComponent messages={this.state.messages} />
             </Grid.Column>
             <Grid.Column align='center' width={4}>
-              <UserComponent userName='sneaky' onSubmitMessage={this.onUserSubmitMessage}/>
+              <UserComponent userName='sneaky' onSubmitMessage={this.onUserSubmitMessage} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
