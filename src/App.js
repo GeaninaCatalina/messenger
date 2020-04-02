@@ -20,9 +20,9 @@ class App extends Component {
   onUserSubmitMessage = (userName, message) => {
     const { messages } = this.state;
     const allignment = userName === 'ck' ? 'left' : 'right';
-    messages.push({ userName, message, date: Date.now(), allignment })
+    messages.push({ userName, message, date: Date.now(), allignment });
 
-    this.setState({ messages }); 
+    this.setState({ messages });
     this.saveMessages();
   }
 
@@ -43,32 +43,22 @@ class App extends Component {
     });
   }
 
+  deleteMessages = async () => {
+    await axios.delete("http://localhost:4200/messages", {
+      data: {
+        firstUser: 'sneaky',
+        secondUser: 'ck'
+      }
+    });
 
-
-deleteMessages = async () => {
-  axios({
-    method: 'DELETE',
-    url: 'http://localhost:4200/messages/delete',
-    headers: { 'Content-Type': 'application/json' },
-    firstUser: 'sneaky',
-    secondUser: 'ck'
-  });
-  this.uiOnClearHistory(); 
-}
-
-
-  uiOnClearHistory = () => {
-    this.setState = {
-      messages: ['']
-    }
+    this.setState({ messages: [] });
   }
 
   render() {
-    
     return (
       <div className="App">
         <h1 className='elegantshadow'>Read my messages</h1>
-        <Button  onClick={this.deleteMessages}>Clear</Button>
+        <Button onClick={this.deleteMessages}>Clear</Button>
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column align='center' width={4}>
