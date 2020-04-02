@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Button } from 'semantic-ui-react';
 import UserComponent from './components/user/UserComponent';
 import FeedComponent from './components/feed/FeedComponent';
 import axios from 'axios';
@@ -43,17 +43,38 @@ class App extends Component {
     });
   }
 
+
+
+deleteMessages = async () => {
+  axios({
+    method: 'DELETE',
+    url: 'http://localhost:4200/messages/delete',
+    headers: { 'Content-Type': 'application/json' },
+    firstUser: 'sneaky',
+    secondUser: 'ck'
+  });
+  this.uiOnClearHistory(); 
+}
+
+
+  uiOnClearHistory = () => {
+    this.setState = {
+      messages: ['']
+    }
+  }
+
   render() {
     
     return (
       <div className="App">
         <h1 className='elegantshadow'>Read my messages</h1>
+        <Button  onClick={this.deleteMessages}>Clear</Button>
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column align='center' width={4}>
               <UserComponent userName='ck' onSubmitMessage={this.onUserSubmitMessage} />
             </Grid.Column>
-            <Grid.Column className='useForScroll' width={7}>
+            <Grid.Column className='useForScroll' width={8}>
               <FeedComponent messages={this.state.messages} />
             </Grid.Column>
             <Grid.Column align='center' width={4}>
