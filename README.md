@@ -34,6 +34,6 @@ npm strat
 
 The application starts at local host:3000    
 
-The backend used for this project, acan be found at [https://github.com/GeaninaCatalina/messenger-server](https://github.com/GeaninaCatalina/messenger-server)
+The backend used for this project, can be found at [https://github.com/GeaninaCatalina/messenger-server](https://github.com/GeaninaCatalina/messenger-server)
 
  
