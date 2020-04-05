@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Image, Form, Button, Input } from 'semantic-ui-react';
+import './UserStyle.css'; 
 
 class UserComponent extends Component {
 
@@ -24,7 +25,7 @@ class UserComponent extends Component {
   render() {
     return (
       <div>       
-        <Card className='card' color='pink'>
+        <Card className='mainCard' color='pink'>
           <Image src={'./' + this.props.userName + '.jpg'} wrapped ui={false} />
           <Card.Content>
             <Card.Header>{this.props.userName.toUpperCase()}</Card.Header>
