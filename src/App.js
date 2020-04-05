@@ -40,7 +40,7 @@ class App extends Component {
       firstUser: 'sneaky',
       secondUser: 'ck',
       messages: this.state.messages
-    });
+    }); 
   }
 
   deleteMessages = async () => {
