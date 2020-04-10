@@ -6,61 +6,57 @@ import axios from 'axios';
 
 class Login extends Component {
 
-constructor(props) {
-  super(props);
+  constructor() {
+    super();
+    this.state = {
+      user: '',
+      password: ''
+    }
+  }
 
-  this.state = {
-    user: "",
-    password: "",
-    loginErrors: ""
-  };
+  onUserValidation = (user, password) => {
+    const { credentials } = this.state;
+    credentials.push({ user, password });
 
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.handleChange = this.handleChange.bind(this);
-}
+    this.setState({ credentials });
+  }
 
-handleChange(event) {
-  this.setState({
-    [event.target.name]: event.target.value
-  });
-}
+  onUserChange = (e) => {
+    this.setState({ user: e.target.value });
+  }
 
-handleSubmit(event) {
-  const { name, password } = this.state;
+  onPasswordChange = (e) => {
+    this.setState({ password: e.target.value });
+  }
 
-  axios
-    .post(
-      "http://localhost:3000/",
-      {
-        user: {
-          name: name,
-          password: password
-        }
-      },
-      { withCredentials: true }
-    )
-    .then(response => {
-      if (response.data.logged_in) {
-        this.props.handleSuccessfulAuth(response.data);
-      }
-    })
-    .catch(error => {
-      console.log("login error", error);
+  async sendCredentials() {
+    const response = await axios.post("http://localhost:4200/login", {
+      user: this.state.user,
+      password: this.state.pass
     });
-  event.preventDefault();
-}
+
+    if (response === true) {
+      // navigate
+    } else {
+      // show error
+    }
+
+    console.log(response);
+  }
 
   render() {
     return (
       <div>
         <Form size='big' className='openPage'>
-          <Form.Input fluid label='Name' placeholder='Name' width='10'/>
-          <Form.Input fluid label='Password' placeholder='Password' width='10'/>
-          <Button className='openButton' color='yellow' size='big'>
-          <Link to='/messenger'>Go to messenger</Link>
-        </Button>
+          <Form.Input fluid label='Name' placeholder='Name' width='10' onChange={this.onUserChange} />
+          <Form.Input fluid label='Password' placeholder='Password' width='10' onChange={this.onPasswordChange} />
+          <Link to='/messenger'>
+            <Button className='openButton' type='submit' color='yellow' size='big' onClick={() => this.sendCredentials()}>
+              Go to messenger
+          </Button>
+          </Link>
         </Form>
-   </div>
+      </div>
     )
   }
 }
