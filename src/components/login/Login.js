@@ -10,7 +10,8 @@ class Login extends Component {
     super();
     this.state = {
       user: '',
-      password: ''
+      password: '',
+      shownPassword :''
     }
   }
 
@@ -27,6 +28,11 @@ class Login extends Component {
 
   onPasswordChange = (e) => {
     this.setState({ password: e.target.value });
+  }
+
+  encryptPassword = () => {
+    this.onPasswordChange(); 
+    this.setState ({shownPassword:'*'.repeat(this.state.password)});
   }
 
   async sendCredentials() {
@@ -49,7 +55,7 @@ class Login extends Component {
       <div>
         <Form size='big' className='openPage'>
           <Form.Input fluid label='Name' placeholder='Name' width='10' onChange={this.onUserChange} />
-          <Form.Input fluid label='Password' placeholder='Password' width='10' onChange={this.onPasswordChange} />
+          <Form.Input fluid label='Password' placeholder='Password' width='10' type="password" onChange={this.onPasswordChange}/>
           <Link to='/messenger'>
             <Button className='openButton' type='submit' color='yellow' size='big' onClick={() => this.sendCredentials()}>
               Go to messenger
