@@ -9,9 +9,7 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      user: '',
-      password: '',
-      shownPassword :''
+      user: ''
     }
   }
 
@@ -28,11 +26,6 @@ class Login extends Component {
 
   onPasswordChange = (e) => {
     this.setState({ password: e.target.value });
-  }
-
-  encryptPassword = () => {
-    this.onPasswordChange(); 
-    this.setState ({shownPassword:'*'.repeat(this.state.password)});
   }
 
   async sendCredentials() {
