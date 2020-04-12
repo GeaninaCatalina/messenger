@@ -9,7 +9,8 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      user: ''
+      user: '', 
+      password: ''
     }
   }
 
@@ -31,7 +32,7 @@ class Login extends Component {
   async sendCredentials() {
     const response = await axios.post("http://localhost:4200/login", {
       user: this.state.user,
-      password: this.state.pass
+      password: this.state.password
     });
 
     if (response === true) {
