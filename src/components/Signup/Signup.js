@@ -11,7 +11,8 @@ class Signup extends Component {
     this.state = {
       user: '',
       password: '',
-      confirmed: ''
+      confirmed: '', 
+      disable: 'true'
     }
   }
 
@@ -28,10 +29,12 @@ class Signup extends Component {
   }
 
   onCheck = () => {
-    if (this.state.password === this.state.confirmed ) {
-      return true; 
+    if (this.state.password === this.state.confirmed) {
+      this.setState({disable:'false'}); 
+      return true;
     } else {
-    } return false; 
+      return false; 
+    }
   }
 
 
@@ -45,6 +48,7 @@ class Signup extends Component {
 
   onPasswordConfirmation = (e) => {
     this.setState({ confirmed: e.target.value });
+    this.onCheck();
   }
 
   render() {
