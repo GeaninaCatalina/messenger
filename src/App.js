@@ -1,9 +1,10 @@
 import React, { Suspense, Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Messenger from './components/messenger/Messenger';
 import Login from './components/login/Login';
 import './App.css'
 import Signup from './components/Signup/Signup';
+import Registred from './components/Signup/Registered';
 
 class App extends Component {
   render() {
@@ -14,7 +15,9 @@ class App extends Component {
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route exact path="/signup" component={Signup}></Route>
-              <Route exact path="/" component={Login} />
+              <Route exact path="/registered" component={Registred}></Route>
+              <Route exact path="/login" component={Login} />
+              <Redirect from='/' to='/login' />
               <Route exact path="/messenger" component={Messenger} />
             </Switch>
           </Suspense>
