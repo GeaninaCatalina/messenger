@@ -15,7 +15,7 @@ class Signup extends Component {
   }
 
   async sendCredentials() { 
-      const response = await axios.post("http://localhost:4200/signup", {
+      const response = await axios.post('http://localhost:4200/signup', {
         user: this.state.user,
         password: this.state.password
       }).catch(function(error) {
@@ -23,6 +23,7 @@ class Signup extends Component {
         console.log(error.response);
       });
       if (response) {
+        this.props.onDisplaySnackBar('Your account was created. You can now login!');
         // 
         this.props.history.push('/login');
       }
@@ -56,6 +57,7 @@ class Signup extends Component {
             <Button className='openButton' type='submit' color='yellow' size='big' disabled={!this.formIsValid()} onClick={() => this.sendCredentials()}>
               Create account
           </Button>
+          
         </Form>
       </div>
     )
