@@ -55,6 +55,7 @@ class Login extends Component {
               Go to messenger
           </Button>
           </Link>
+          <h3>You don't have an accont yet? <Link to='/signup'>Sign up!</Link></h3>
         </Form>
       </div>
     )
