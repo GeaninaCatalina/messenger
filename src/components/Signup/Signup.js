@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import { Button, Form } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 class Signup extends Component {
@@ -57,7 +58,7 @@ class Signup extends Component {
             <Button className='openButton' type='submit' color='yellow' size='big' disabled={!this.formIsValid()} onClick={() => this.sendCredentials()}>
               Create account
           </Button>
-          
+          <h3>You already have an accont? <Link to='/login'>Login!</Link></h3>    
         </Form>
       </div>
     )

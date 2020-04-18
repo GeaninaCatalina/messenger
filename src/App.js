@@ -21,10 +21,10 @@ class App extends Component {
         <Router>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
+              <Route exact path='/messenger' component={Messenger} />
               <Route exact path='/signup' component={(props) => <Signup {...props} onDisplaySnackBar={this.onDisplaySnackBar}/>}></Route>
               <Route exact path='/login' component={Login} />
               <Redirect from='/' to='/login' />
-              <Route exact path='/messenger' component={Messenger} />
             </Switch>
           </Suspense>
         </Router>

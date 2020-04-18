@@ -34,14 +34,14 @@ class Login extends Component {
       user: this.state.user,
       password: this.state.password
     });
-
-    if (response === true) {
-      // navigate
+    if (response.data === true) {
+      this.props.history.push('/messenger');
     } else {
-      // show error
+      alert ('Wrong User name or password!')
     }
 
-    console.log(response);
+    console.log(response.data);
+  
   }
 
   render() {
@@ -50,11 +50,9 @@ class Login extends Component {
         <Form size='big' className='openPage'>
           <Form.Input fluid label='Name' placeholder='Name' width='10' onChange={this.onUserChange} />
           <Form.Input fluid label='Password' placeholder='Password' width='10' type="password" onChange={this.onPasswordChange}/>
-          <Link to='/messenger'>
             <Button className='openButton' type='submit' color='yellow' size='big' onClick={() => this.sendCredentials()}>
               Go to messenger
           </Button>
-          </Link>
           <h3>You don't have an accont yet? <Link to='/signup'>Sign up!</Link></h3>
         </Form>
       </div>
