@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Messenger from './components/messenger/Messenger';
 import Login from './components/login/Login';
 import './App.css'
-import Signup from './components/Signup/Signup';
-import Snackbar from './components/Signup/Snackbar';
+import Signup from './components/signup/Signup';
+import Snackbar from './components/snackbar/Snackbar';
 
 class App extends Component {
 
