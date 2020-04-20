@@ -3,6 +3,8 @@ import './Login.css';
 import { Link } from "react-router-dom";
 import { Button, Form } from 'semantic-ui-react';
 import axios from 'axios';
+import { withTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 class Login extends Component {
 
@@ -12,6 +14,10 @@ class Login extends Component {
       user: '', 
       password: ''
     }
+  }
+
+  changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   }
 
   onUserValidation = (user, password) => {
@@ -45,19 +51,20 @@ class Login extends Component {
   }
 
   render() {
+    const {t} = this.props; 
     return (
       <div>
         <Form size='big' className='openPage'>
-          <Form.Input fluid label='Name' placeholder='Name' width='10' onChange={this.onUserChange} />
-          <Form.Input fluid label='Password' placeholder='Password' width='10' type="password" onChange={this.onPasswordChange}/>
+          <Form.Input fluid label={t('login_name')} placeholder={t('login_name')} width='10' onChange={this.onUserChange} />
+          <Form.Input fluid label={t('login_password')} placeholder={t('login_password')} width='10' type="password" onChange={this.onPasswordChange}/>
             <Button className='openButton' type='submit' color='yellow' size='big' onClick={() => this.sendCredentials()}>
-              Go to messenger
+            {t('login_gotomessenger')}
           </Button>
-          <h3>You don't have an accont yet? <Link to='/signup'>Sign up!</Link></h3>
+    <h3>{t('login_message')} <Link to='/signup'>{t('login_signup')}</Link></h3>
         </Form>
       </div>
     )
   }
 }
 
-export default Login;
+export default withTranslation()(Login);

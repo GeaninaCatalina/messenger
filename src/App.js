@@ -2,9 +2,11 @@ import React, { Suspense, Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Messenger from './components/messenger/Messenger';
 import Login from './components/login/Login';
-import './App.css'
 import Signup from './components/signup/Signup';
 import Snackbar from './components/snackbar/Snackbar';
+import { withTranslation } from 'react-i18next';
+import i18n from './i18n';
+import './App.css'
 
 class App extends Component {
 
@@ -14,10 +16,19 @@ class App extends Component {
     this.snackbarRef.current.openSnackBar(message);
   }
 
+  changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  }
+
   render() {
+    const {t} = this.props;
     return (
       <div className='AppHeder'>
-        <h1 className='elegantshadow'>Read my messages</h1>
+        <div className='languageButton'>
+          <button className='buttonL' onClick={() => this.changeLanguage('fr')}>FR</button>
+          <button className='buttonL' onClick={() => this.changeLanguage('en')}>EN</button>
+        </div>
+        <h1 className='elegantshadow'>{t('app_title')}</h1>
         <Router>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
@@ -34,4 +45,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withTranslation()(App);
