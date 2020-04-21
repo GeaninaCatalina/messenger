@@ -4,6 +4,8 @@ import { Grid, Button } from 'semantic-ui-react';
 import UserComponent from './user/UserComponent';
 import FeedComponent from './feed/FeedComponent';
 import axios from 'axios';
+import { withTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 class Messenger extends Component {
   constructor() {
@@ -11,6 +13,10 @@ class Messenger extends Component {
     this.state = {
       messages: []
     }
+  }
+
+  changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   }
 
   componentDidMount() {
@@ -55,9 +61,10 @@ class Messenger extends Component {
   }
 
   render() {
+    const {t} = this.props; 
     return (
       <div className="App">
-        <Button color='blue' onClick={this.deleteMessages}>Clear</Button>
+        <Button color='blue' onClick={this.deleteMessages}>{t('clear')}</Button>
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column align='center' width={4}>
@@ -76,4 +83,4 @@ class Messenger extends Component {
   }
 }
 
-export default Messenger;
+export default withTranslation()(Messenger);

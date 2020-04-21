@@ -12,7 +12,17 @@ const resources = {
       'login_password': 'Password',
       'login_message': "You don't have an accont yet?",
       'login_signup':  'Sign up!',
-      'login_gotomessenger': "Go to messenger"
+      'login_gotomessenger': "Go to messenger",
+
+      'signup_name': 'Name',
+      'signup_password': 'Password',
+      'signup_confirm': 'Confirm password',
+      'signup_message': "You already have an accont?",
+      'signup_login':  'Login!',
+      'signup_button': "Create account",
+      'submit':'Submit', 
+      'submit_placeholder': 'Add your message here',
+      'clear': 'Clear'
     }
   },
   fr: {
@@ -22,7 +32,18 @@ const resources = {
       'login_password': 'Mot de passe', 
       'login_message': "Vous n'avez pas encore de compte",
       'login_signup':  'Inscrivez-vous!',
-      'login_gotomessenger': "Aller au messager"
+      'login_gotomessenger': "Aller au messager", 
+
+      'signup_name': 'Nom',
+      'signup_password': 'Mot de passe',
+      'signup_confirm': 'Confirmez le mot de passe',
+      'signup_message': "Avez-vous déjà un compte? ",
+      'signup_login':  "S'identifier!",
+      'signup_button': "Créer un compte", 
+
+      'submit':'Soumettre', 
+      'submit_placeholder': 'Ajoutez votre message ici',
+      'clear': 'Messages clairs'
     }
   }
 };

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Image, Form, Button, Input } from 'semantic-ui-react';
 import './UserStyle.css'; 
+import { withTranslation } from 'react-i18next';
+import i18n from '../../../i18n';
 
 class UserComponent extends Component {
 
@@ -9,6 +11,10 @@ class UserComponent extends Component {
     this.state = {
       userInput: ''
     }
+  }
+
+  changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   }
 
   onInputChange = (e) => {
@@ -23,6 +29,7 @@ class UserComponent extends Component {
   }
 
   render() {
+    const {t} = this.props; 
     return (
       <div>       
         <Card className='mainCard' color='pink'>
@@ -35,13 +42,13 @@ class UserComponent extends Component {
         <Form size='big'>
           <Form.Field>
             <br></br>
-            <Input placeholder='Add your message here' onChange={this.onInputChange} value={this.state.userInput}/>
+            <Input placeholder={t('submit_placeholder')} onChange={this.onInputChange} value={this.state.userInput}/>
           </Form.Field>
-          <Button type='submit'color='blue' onClick={this.onSubmit}>Submit</Button>
+         <Button type='submit'color='blue' onClick={this.onSubmit}>{t('submit')}</Button>
         </Form>
       </div>
     );
   }
 }
 
-export default UserComponent;
+export default withTranslation()(UserComponent);

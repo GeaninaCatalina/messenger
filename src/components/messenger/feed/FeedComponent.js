@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Feed,Label } from 'semantic-ui-react';
-import './FeedStyle.css'
+import './FeedStyle.css'; 
 
 class FeedComponent extends Component {
 
