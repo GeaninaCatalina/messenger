@@ -6,7 +6,8 @@ import Signup from './components/signup/Signup';
 import Snackbar from './components/snackbar/Snackbar';
 import { withTranslation } from 'react-i18next';
 import i18n from './i18n';
-import './App.css'
+import './App.css';
+import {Flag} from 'semantic-ui-react';
 
 class App extends Component {
 
@@ -25,8 +26,8 @@ class App extends Component {
     return (
       <div className='AppHeder'>
         <div className='languageButton'>
-          <button className='buttonL' onClick={() => this.changeLanguage('fr')}>FR</button>
-          <button className='buttonL' onClick={() => this.changeLanguage('en')}>EN</button>
+          <button className='buttonL' onClick={() => this.changeLanguage('fr')}><Flag name='france' /></button>
+          <button className='buttonL' onClick={() => this.changeLanguage('en')}><Flag name='uk' /></button>
         </div>
         <h1 className='elegantshadow'>{t('app_title')}</h1>
         <Router>
