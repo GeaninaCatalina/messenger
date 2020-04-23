@@ -22,9 +22,11 @@ class Signup extends Component {
   }
 
   async sendCredentials() { 
+      const id = 0; 
       const response = await axios.post('http://localhost:4200/signup', {
         user: this.state.user,
-        password: this.state.password
+        password: this.state.password, 
+        id: id+1
       }).catch(function(error) {
         alert(error.response.data)
         console.log(error.response);
