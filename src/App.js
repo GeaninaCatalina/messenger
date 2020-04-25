@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Messenger from './components/messenger/Messenger';
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
+import Group from './components/intermidiar/Group';
 import Snackbar from './components/snackbar/Snackbar';
 import { withTranslation } from 'react-i18next';
 import i18n from './i18n';
@@ -35,6 +36,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/messenger' component={Messenger} />
               <Route exact path='/signup' component={(props) => <Signup {...props} onDisplaySnackBar={this.onDisplaySnackBar}/>}></Route>
+              <Route exact path='/group' component={Group}/>
               <Route exact path='/login' component={Login} />
               <Redirect from='/' to='/login' />
             </Switch>

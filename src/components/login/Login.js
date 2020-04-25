@@ -41,7 +41,7 @@ class Login extends Component {
       password: this.state.password
     });
     if (response.data === true) {
-      this.props.history.push('/messenger');
+      this.props.history.push('/group');
     } else {
       alert ('Wrong User name or password!')
     }

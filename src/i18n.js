@@ -20,9 +20,13 @@ const resources = {
       'signup_message': "You already have an accont?",
       'signup_login':  'Login!',
       'signup_button': "Create account",
+      
       'submit':'Submit', 
       'submit_placeholder': 'Add your message here',
-      'clear': 'Clear'
+      'clear': 'Clear',
+
+      'group_global': 'Global',
+      'group_friends': 'Friends'
     }
   },
   fr: {
@@ -43,7 +47,10 @@ const resources = {
 
       'submit':'Soumettre', 
       'submit_placeholder': 'Ajoutez votre message ici',
-      'clear': 'Messages clairs'
+      'clear': 'Messages clairs',
+
+      'group_global': 'Globale',
+      'group_friends': 'Copains'
     }
   }
 };
