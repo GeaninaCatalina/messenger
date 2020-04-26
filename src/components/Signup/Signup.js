@@ -32,7 +32,7 @@ class Signup extends Component {
       if (response) {
         this.props.onDisplaySnackBar('Your account was created. You can now login!');
         // 
-        this.props.history.push('/login');
+        this.props.history.push('/profile');
       }
   }
 

@@ -26,7 +26,9 @@ const resources = {
       'clear': 'Clear',
 
       'group_global': 'Global',
-      'group_friends': 'Friends'
+      'group_friends': 'Friends',
+
+      'Placeholder': 'Placeholder'
     }
   },
   fr: {
@@ -50,7 +52,9 @@ const resources = {
       'clear': 'Messages clairs',
 
       'group_global': 'Globale',
-      'group_friends': 'Copains'
+      'group_friends': 'Copains',
+
+      'Placeholder': 'Espace réservé'
     }
   }
 };

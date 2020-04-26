@@ -9,6 +9,7 @@ import { withTranslation } from 'react-i18next';
 import i18n from './i18n';
 import './App.css';
 import {Flag} from 'semantic-ui-react';
+import Profile from './profile/Profile';
 
 class App extends Component {
 
@@ -37,6 +38,7 @@ class App extends Component {
               <Route exact path='/messenger' component={Messenger} />
               <Route exact path='/signup' component={(props) => <Signup {...props} onDisplaySnackBar={this.onDisplaySnackBar}/>}></Route>
               <Route exact path='/group' component={Group}/>
+              <Route exact path='/profile' component={Profile}/>
               <Route exact path='/login' component={Login} />
               <Redirect from='/' to='/login' />
             </Switch>
