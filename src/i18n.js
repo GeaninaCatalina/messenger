@@ -54,7 +54,7 @@ const resources = {
       'group_global': 'Globale',
       'group_friends': 'Copains',
 
-      'Placeholder': 'Espace réservé'
+  
     }
   }
 };
