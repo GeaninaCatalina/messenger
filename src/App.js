@@ -2,9 +2,10 @@ import React, { Suspense, Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Messenger from './components/messenger/Messenger';
 import Login from './components/login/Login';
-import Signup from './components/signup/Signup';
+import Signup from './components/Signup/Signup';
 import Group from './components/intermidiar/Group';
 import Snackbar from './components/snackbar/Snackbar';
+import Global from './components/global/Global';
 import { withTranslation } from 'react-i18next';
 import i18n from './i18n';
 import './App.css';
@@ -40,6 +41,7 @@ class App extends Component {
               <Route exact path='/group' component={Group}/>
               <Route exact path='/profile' component={Profile}/>
               <Route exact path='/login' component={Login} />
+              <Route exact path='/global' component={Global} />
               <Redirect from='/' to='/login' />
             </Switch>
           </Suspense>
