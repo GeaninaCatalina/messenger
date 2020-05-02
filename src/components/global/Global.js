@@ -28,7 +28,6 @@ class Global extends Component {
     this.state={
       messages: [] 
     }
-
     subcribeToSocket();
   }
 
