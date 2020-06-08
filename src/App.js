@@ -2,7 +2,7 @@ import React, { Suspense, Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Messenger from './components/messenger/Messenger';
 import Login from './components/login/Login';
-import Signup from './components/Signup/Signup';
+import Signup from './components/signup/Signup';
 import Group from './components/intermidiar/Group';
 import Snackbar from './components/snackbar/Snackbar';
 import Global from './components/global/Global';
