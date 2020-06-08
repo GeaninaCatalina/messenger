@@ -1,34 +1,21 @@
-import React, { Component, useEffect  } from 'react'; 
-import {Grid} from 'semantic-ui-react'; 
-import  './Global.css'
-import UserComponent from '../messenger/user/UserComponent'; 
+import React, { Component, useEffect } from 'react';
+import { Grid } from 'semantic-ui-react';
+import './Global.css'
+import UserComponent from '../messenger/user/UserComponent';
 import FeedComponent from '../messenger/feed/FeedComponent';
 import socketIOClient from "socket.io-client";
 import axios from 'axios';
 import { withTranslation } from 'react-i18next';
-import i18n from '../../i18n'; 
-const socket = socketIOClient('http://localhost:4200');
+import i18n from '../../i18n';
 
-function subcribeToSocket() {
-  console.log('subscribing')
-  socket.emit('testing-connection', 'Test')
-
-  socket.on('new-global-message', data => {
-    console.log('msg received')
-    if (data.user !== 'sneaky2') {
-      console.log('msg received')
-      this.state.messages.push({user: data.user, message: data.message, date: Date.now(), allignment: 'right'});
-    }
-  });
-}
 
 class Global extends Component {
-  constructor(){
-    super(); 
-    this.state={
-      messages: [] 
+  constructor() {
+    super();
+    this.state = {
+      messages: []
     }
-    subcribeToSocket();
+
   }
 
   changeLanguage = (lng) => {
@@ -36,19 +23,27 @@ class Global extends Component {
   }
 
   componentDidMount() {
+    const socket = socketIOClient('http://localhost:4200');
+    socket.on('message', (data) => {
+      if (data.user !== 'sneaky1') {
+        const messages = this.state.messages;
+        messages.push(data);
+        this.setState({ messages });
+      }
+    })
     this.getMessages();
   }
 
+
   onUserSubmitMessage = async (userName, message) => {
     const { messages } = this.state;
-    
-    await axios.post("http://localhost:4200/messages/global", {
-      user: 'sneaky',
-      message: 'Test message'
-    });
-    
-    messages.push({ userName, message, date: Date.now(), allignment: 'left' });
 
+    await axios.post("http://localhost:4200/messages/global", {
+      user: userName,
+      message: message,
+    });
+
+    messages.push({ userName, message, date: Date.now(), allignment: 'left' });
     this.setState({ messages });
   }
 
@@ -59,8 +54,7 @@ class Global extends Component {
   }
 
   render() {
-    
-    const {t} = this.props; 
+    const { t } = this.props;
     return (
       <div>
         <Grid columns={2} divided>
@@ -78,5 +72,5 @@ class Global extends Component {
     )
   }
 
-} 
+}
 export default withTranslation()(Global); 

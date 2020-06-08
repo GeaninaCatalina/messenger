@@ -15,7 +15,12 @@ class Group extends Component {
 		i18n.changeLanguage(lng);
 	}
 
-	onClick = () => {
+	onClickGlobal = () => {
+		this.props.history.push('/global');
+	}
+	
+
+	onClickFriends = () => {
 		this.props.history.push('/messenger');
 	}
 	
@@ -28,8 +33,8 @@ class Group extends Component {
 						<Grid.Column align='center' width={6}>
 						</Grid.Column>
 						<Grid.Column width={4}>
-							<Button className='openButton' color='yellow' size='big' >{t('group_global')}</Button>
-							<Button className='openButton' color='yellow' size='big' onClick={this.onClick}>{t('group_friends')}</Button>
+							<Button className='openButton' color='yellow' size='big' onClick={this.onClickGlobal}>{t('group_global')}</Button>
+							<Button className='openButton' color='yellow' size='big' onClick={this.onClickFriends}>{t('group_friends')}</Button>
 						</Grid.Column>
 						<Grid.Column width={7}>
 						</Grid.Column>
